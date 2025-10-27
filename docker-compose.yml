@@ -1,0 +1,25 @@
+services:
+  personapi-dotnet:
+    build:
+      context: .
+      dockerfile: personapi-dotnet/Dockerfile
+    container_name: webapp
+    ports:
+      - "8080:80"
+    depends_on:
+      - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqldb
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "DB4dmin!"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+    restart: always
+
+volumes:
+  sql_data:

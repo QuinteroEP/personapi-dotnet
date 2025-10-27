@@ -1,0 +1,19 @@
+name: dockercompose16829847743652366408
+services:
+  personapi-dotnet:
+    build:
+      context: C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet
+      dockerfile: personapi-dotnet/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    image: personapidotnet
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+networks:
+  default:
+    name: dockercompose16829847743652366408_default

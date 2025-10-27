@@ -1,0 +1,49 @@
+name: dockercompose16829847743652366408
+services:
+  personapi-dotnet:
+    build:
+      context: C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet
+      dockerfile: personapi-dotnet/Dockerfile
+    container_name: webapp
+    depends_on:
+      sqlserver:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8080"
+        protocol: tcp
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+  sqlserver:
+    container_name: sqldb
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: DB4dmin!
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "1433"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: volume
+        source: sql_data
+        target: /var/opt/mssql
+        volume: {}
+networks:
+  default:
+    name: dockercompose16829847743652366408_default
+volumes:
+  sql_data:
+    name: dockercompose16829847743652366408_sql_data

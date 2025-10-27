@@ -1,0 +1,12 @@
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\personapi-dotnet.deps.json
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\personapi-dotnet.runtimeconfig.json
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\appsettings.Development.json
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\appsettings.json
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\personapi-dotnet.staticwebassets.runtime.json
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\personapi-dotnet.staticwebassets.endpoints.json
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\personapi-dotnet.exe
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\personapi-dotnet.dll
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\personapi-dotnet.pdb
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\obj\Debug\docker-c.35A3FFBA.Up2Date
