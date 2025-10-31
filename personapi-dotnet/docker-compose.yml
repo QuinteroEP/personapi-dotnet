@@ -9,18 +9,24 @@ services:
       - "1433:1433"
     volumes:
       - sql_data:/var/opt/mssql       
-      - ./init-sql:/init-sql         
+      - ./init-sql:/init-sql       
+    networks:
+      - appnet
     restart: always
 
   personapi-dotnet:
     build:
       context: .
-      dockerfile: personapi-dotnet/Dockerfile
+      dockerfile: /Dockerfile
     container_name: webapp
-    ports:
-      - "8080:80"
     depends_on:
       - sqlserver
+    networks:
+      - appnet
 
 volumes:
   sql_data:
+
+networks:
+  appnet:
+    driver: bridge

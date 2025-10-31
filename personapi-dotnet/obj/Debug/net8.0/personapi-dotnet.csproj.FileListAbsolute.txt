@@ -25,7 +25,6 @@ C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.dll
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\refint\personapi-dotnet.dll
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.pdb

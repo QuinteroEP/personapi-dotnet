@@ -1,15 +1,40 @@
 ﻿@model List<personapi_dotnet.Models.Entities.Persona>
 
     <h1>Personas</h1>
-    <table>
+    <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Cedula</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Edad</th>
+                <th>Telefono</th>
+                <th>Genero</th>
+                <th>Universidad</th>
             </tr>
         </thead>
         <tbody>
-    </tbody>
+            @foreach(var persona in Model)
+            {
+                <tr>
+                    <td>@persona.Cc</td>
+                    <td>@persona.Nombre</td>
+                    <td>@persona.Apellido</td>
+                    <td>
+                        @if (persona.Telefonos != null && persona.Telefonos.Count > 0)
+                        {
+                            foreach (var telefono in persona.Telefonos)
+                            {
+                                @telefono.Num <br />
+                            }
+                        }
+                        else
+                        {
+                            <text>No tiene telefonos</text>
+                        }
+                    </td>
+                    <td>@persona.Genero</td>
+                    <td></td>
+                </tr>
+            })
+        </tbody>
     </table>

@@ -54,12 +54,6 @@ CREATE TABLE
    [id_prof] int  NOT NULL,
    [cc_per] int  NOT NULL,
    [fecha] date  NULL,
-
-   /*
-   *   SSMA informational messages:
-   *   M2SS0055: Data type was converted to VARCHAR according to character set mapping for latin1 character set
-   */
-
    [univer] varchar(50)  NULL
 )
 WITH (DATA_COMPRESSION = NONE)
@@ -123,26 +117,8 @@ CREATE TABLE
 [arq_per_db].[persona]
 (
    [cc] int  NOT NULL,
-
-   /*
-   *   SSMA informational messages:
-   *   M2SS0055: Data type was converted to VARCHAR according to character set mapping for latin1 character set
-   */
-
    [nombre] varchar(45)  NOT NULL,
-
-   /*
-   *   SSMA informational messages:
-   *   M2SS0055: Data type was converted to VARCHAR according to character set mapping for latin1 character set
-   */
-
    [apellido] varchar(45)  NOT NULL,
-
-   /*
-   *   SSMA informational messages:
-   *   M2SS0055: Data type was converted to VARCHAR according to character set mapping for latin1 character set
-   */
-
    [genero] varchar(1)  NOT NULL,
    [edad] int  NULL
 )
@@ -207,19 +183,7 @@ CREATE TABLE
 [arq_per_db].[profesion]
 (
    [id] int  NOT NULL,
-
-   /*
-   *   SSMA informational messages:
-   *   M2SS0055: Data type was converted to VARCHAR according to character set mapping for latin1 character set
-   */
-
    [nom] varchar(90)  NOT NULL,
-
-   /*
-   *   SSMA informational messages:
-   *   M2SS0055: Data type was converted to VARCHAR(MAX) according to character set mapping for latin1 character set
-   */
-
    [des] varchar(max)  NULL
 )
 WITH (DATA_COMPRESSION = NONE)
@@ -282,19 +246,7 @@ GO
 CREATE TABLE 
 [arq_per_db].[telefono]
 (
-
-   /*
-   *   SSMA informational messages:
-   *   M2SS0055: Data type was converted to VARCHAR according to character set mapping for latin1 character set
-   */
-
    [num] varchar(15)  NOT NULL,
-
-   /*
-   *   SSMA informational messages:
-   *   M2SS0055: Data type was converted to VARCHAR according to character set mapping for latin1 character set
-   */
-
    [oper] varchar(45)  NOT NULL,
    [duenio] int  NOT NULL
 )
@@ -382,49 +334,6 @@ IF EXISTS (SELECT * FROM sys.objects so JOIN sys.schemas sc ON so.schema_id = sc
     WHERE so.name = N'enum2str$persona$genero'  AND sc.name=N'arq_per_db'  AND type in (N'FN',N'TF',N'IF',N'FS',N'FT'))
 BEGIN
 
-/* Uncomment this block if you have constraints which use this function  
-
-  DECLARE @drop_statement nvarchar(500)
-  DECLARE drop_cursor CURSOR FOR
-     SELECT
-                 'ALTER TABLE ' +
-                       quotename(schema_name(tbl.schema_id)) + '.' +
-                       quotename(object_name(tbl.object_id)) +
-                 ' DROP CONSTRAINT ' + quotename(object_name(constr.object_id))
-     FROM sys.sql_expression_dependencies dep
-           JOIN sys.objects constr
-                 ON constr.object_id = dep.referencing_id AND constr.type = N'C'
-           JOIN sys.objects tbl
-                 ON tbl.object_id = constr.parent_object_id
-     WHERE
-           dep.referenced_id =
-           (
-                 SELECT so.object_id
-                       FROM sys.objects so
-                             JOIN sys.schemas sc
-                                   ON so.schema_id = sc.schema_id
-                       WHERE
-                             so.name = N'enum2str$persona$genero'  AND
-                             sc.name=N'arq_per_db'  AND
-                             type in (N'FN',N'TF',N'IF')
-            )
-
-  OPEN drop_cursor
-
-  FETCH NEXT FROM drop_cursor
-  INTO @drop_statement
-
-
-  WHILE @@FETCH_STATUS = 0
-  BEGIN
-     EXEC (@drop_statement)
-     FETCH NEXT FROM drop_cursor
-     INTO @drop_statement
-  END
-
-  CLOSE drop_cursor
-  DEALLOCATE drop_cursor
-*/
   DROP FUNCTION [arq_per_db].[enum2str$persona$genero]
 END
 
@@ -468,49 +377,6 @@ IF EXISTS (SELECT * FROM sys.objects so JOIN sys.schemas sc ON so.schema_id = sc
     WHERE so.name = N'norm_enum$persona$genero'  AND sc.name=N'arq_per_db'  AND type in (N'FN',N'TF',N'IF',N'FS',N'FT'))
 BEGIN
 
-/* Uncomment this block if you have constraints which use this function  
-
-  DECLARE @drop_statement nvarchar(500)
-  DECLARE drop_cursor CURSOR FOR
-     SELECT
-                 'ALTER TABLE ' +
-                       quotename(schema_name(tbl.schema_id)) + '.' +
-                       quotename(object_name(tbl.object_id)) +
-                 ' DROP CONSTRAINT ' + quotename(object_name(constr.object_id))
-     FROM sys.sql_expression_dependencies dep
-           JOIN sys.objects constr
-                 ON constr.object_id = dep.referencing_id AND constr.type = N'C'
-           JOIN sys.objects tbl
-                 ON tbl.object_id = constr.parent_object_id
-     WHERE
-           dep.referenced_id =
-           (
-                 SELECT so.object_id
-                       FROM sys.objects so
-                             JOIN sys.schemas sc
-                                   ON so.schema_id = sc.schema_id
-                       WHERE
-                             so.name = N'norm_enum$persona$genero'  AND
-                             sc.name=N'arq_per_db'  AND
-                             type in (N'FN',N'TF',N'IF')
-            )
-
-  OPEN drop_cursor
-
-  FETCH NEXT FROM drop_cursor
-  INTO @drop_statement
-
-
-  WHILE @@FETCH_STATUS = 0
-  BEGIN
-     EXEC (@drop_statement)
-     FETCH NEXT FROM drop_cursor
-     INTO @drop_statement
-  END
-
-  CLOSE drop_cursor
-  DEALLOCATE drop_cursor
-*/
   DROP FUNCTION [arq_per_db].[norm_enum$persona$genero]
 END
 
@@ -549,49 +415,6 @@ IF EXISTS (SELECT * FROM sys.objects so JOIN sys.schemas sc ON so.schema_id = sc
     WHERE so.name = N'str2enum$persona$genero'  AND sc.name=N'arq_per_db'  AND type in (N'FN',N'TF',N'IF',N'FS',N'FT'))
 BEGIN
 
-/* Uncomment this block if you have constraints which use this function  
-
-  DECLARE @drop_statement nvarchar(500)
-  DECLARE drop_cursor CURSOR FOR
-     SELECT
-                 'ALTER TABLE ' +
-                       quotename(schema_name(tbl.schema_id)) + '.' +
-                       quotename(object_name(tbl.object_id)) +
-                 ' DROP CONSTRAINT ' + quotename(object_name(constr.object_id))
-     FROM sys.sql_expression_dependencies dep
-           JOIN sys.objects constr
-                 ON constr.object_id = dep.referencing_id AND constr.type = N'C'
-           JOIN sys.objects tbl
-                 ON tbl.object_id = constr.parent_object_id
-     WHERE
-           dep.referenced_id =
-           (
-                 SELECT so.object_id
-                       FROM sys.objects so
-                             JOIN sys.schemas sc
-                                   ON so.schema_id = sc.schema_id
-                       WHERE
-                             so.name = N'str2enum$persona$genero'  AND
-                             sc.name=N'arq_per_db'  AND
-                             type in (N'FN',N'TF',N'IF')
-            )
-
-  OPEN drop_cursor
-
-  FETCH NEXT FROM drop_cursor
-  INTO @drop_statement
-
-
-  WHILE @@FETCH_STATUS = 0
-  BEGIN
-     EXEC (@drop_statement)
-     FETCH NEXT FROM drop_cursor
-     INTO @drop_statement
-  END
-
-  CLOSE drop_cursor
-  DEALLOCATE drop_cursor
-*/
   DROP FUNCTION [arq_per_db].[str2enum$persona$genero]
 END
 

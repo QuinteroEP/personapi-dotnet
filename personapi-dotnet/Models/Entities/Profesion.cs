@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace personapi_dotnet.Models.Entities;
 
+[Table("profesion", Schema = "arq_per_db")]
 public partial class Profesion
 {
     public int Id { get; set; }
