@@ -1,14 +1,4 @@
 services:
-  personapi-dotnet:
-    build:
-      context: .
-      dockerfile: personapi-dotnet/Dockerfile
-    container_name: webapp
-    ports:
-      - "8080:80"
-    depends_on:
-      - sqlserver
-
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: sqldb
@@ -18,8 +8,19 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - sql_data:/var/opt/mssql
+      - sql_data:/var/opt/mssql       
+      - ./init-sql:/init-sql         
     restart: always
+
+  personapi-dotnet:
+    build:
+      context: .
+      dockerfile: personapi-dotnet/Dockerfile
+    container_name: webapp
+    ports:
+      - "8080:80"
+    depends_on:
+      - sqlserver
 
 volumes:
   sql_data:

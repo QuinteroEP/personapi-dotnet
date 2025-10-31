@@ -1,0 +1,2 @@
+CREATE DATABASE arq_per_db;
+GO

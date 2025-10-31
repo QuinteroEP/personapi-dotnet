@@ -23,6 +23,10 @@ services:
         target: 8080
         protocol: tcp
   sqlserver:
+    command:
+      - /bin/bash
+      - -c
+      - /opt/mssql/bin/sqlservr &  sleep 20;  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'DB4dmin!' -i /init-sql/create-db.sql; /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'DB4dmin!' -i /init-sql/schema.sql; /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'DB4dmin!' -i /init-sql/data.sql
     container_name: sqldb
     environment:
       ACCEPT_EULA: "Y"
@@ -41,6 +45,11 @@ services:
         source: sql_data
         target: /var/opt/mssql
         volume: {}
+      - type: bind
+        source: C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\init-sql
+        target: /init-sql
+        bind:
+          create_host_path: true
 networks:
   default:
     name: dockercompose16829847743652366408_default

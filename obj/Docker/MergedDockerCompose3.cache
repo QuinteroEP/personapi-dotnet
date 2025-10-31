@@ -11,7 +11,11 @@ services:
         com.microsoft.created-by: visual-studio
         com.microsoft.visual-studio.project-name: personapi-dotnet
       target: base
-    container_name: sqldb
+    container_name: webapp
+    depends_on:
+      sqlserver:
+        condition: service_started
+        required: true
     entrypoint:
       - dotnet
       - --roll-forward
@@ -19,14 +23,12 @@ services:
       - /VSTools/DistrolessHelper/DistrolessHelper.dll
       - --wait
     environment:
-      ACCEPT_EULA: "Y"
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_HTTP_PORTS: "8080"
       ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
-      MSSQL_SA_PASSWORD: DB4dmin!
       NUGET_FALLBACK_PACKAGES: /.nuget/fallbackpackages
-    image: mcr.microsoft.com/mssql/server:dev
+    image: personapidotnet:dev
     labels:
       com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /.nuget/packages --additionalProbingPath /.nuget/fallbackpackages  "/app/bin/Debug/net8.0/personapi-dotnet.dll"'
       com.microsoft.visualstudio.debuggee.killprogram: dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --stop dotnet
@@ -36,19 +38,14 @@ services:
       default: null
     ports:
       - mode: ingress
-        target: 1433
-        published: "1433"
+        target: 80
+        published: "8080"
         protocol: tcp
       - mode: ingress
         target: 8080
         protocol: tcp
-    restart: always
     tty: true
     volumes:
-      - type: volume
-        source: sql_data
-        target: /var/opt/mssql
-        volume: {}
       - type: bind
         source: C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet
         target: /app
@@ -112,21 +109,34 @@ services:
         read_only: true
         bind:
           create_host_path: true
-  webapp:
-    build:
-      context: C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet
-      dockerfile: Dockerfile
-    depends_on:
-      personapi-dotnet:
-        condition: service_started
-        required: true
+  sqlserver:
+    command:
+      - /bin/bash
+      - -c
+      - /opt/mssql/bin/sqlservr &  sleep 20;  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'DB4dmin!' -i /init-sql/create-db.sql; /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'DB4dmin!' -i /init-sql/schema.sql; /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'DB4dmin!' -i /init-sql/data.sql
+    container_name: sqldb
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: DB4dmin!
+    image: mcr.microsoft.com/mssql/server:2022-latest
     networks:
       default: null
     ports:
       - mode: ingress
-        target: 80
-        published: "8080"
+        target: 1433
+        published: "1433"
         protocol: tcp
+    restart: always
+    volumes:
+      - type: volume
+        source: sql_data
+        target: /var/opt/mssql
+        volume: {}
+      - type: bind
+        source: C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\init-sql
+        target: /docker-entrypoint-initdb.d
+        bind:
+          create_host_path: true
 networks:
   default:
     name: dockercompose16829847743652366408_default

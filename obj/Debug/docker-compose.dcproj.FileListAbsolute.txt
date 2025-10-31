@@ -10,3 +10,7 @@ C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\personapi-dotnet.
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\obj\Debug\docker-c.35A3FFBA.Up2Date
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\bin\Debug\System.Diagnostics.DiagnosticSource.dll
