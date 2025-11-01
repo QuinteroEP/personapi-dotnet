@@ -1,0 +1,16 @@
+@model personapi_dotnet.Models.Entities.Telefono
+
+<h1>Editar Telefono</h1>
+<form asp-action="Edit" asp-controller="Telefono" method="post">
+ @Html.AntiForgeryToken()
+ <input type="hidden" name="Num" value="@Model.Num" />
+ <div class="form-group">
+ <label for="Oper">Operador:</label>
+ <input type="text" class="form-control" id="Oper" name="Oper" value="@Model.Oper" />
+ </div>
+ <div class="form-group">
+ <label for="Duenio">Cedula Duenio:</label>
+ <input type="number" class="form-control" id="Duenio" name="Duenio" value="@Model.Duenio" />
+ </div>
+ <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

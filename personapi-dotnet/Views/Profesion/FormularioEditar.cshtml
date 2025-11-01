@@ -1,0 +1,16 @@
+@model personapi_dotnet.Models.Entities.Profesion
+
+<h1>Editar Profesion</h1>
+<form asp-action="Edit" asp-controller="Profesion" method="post">
+ @Html.AntiForgeryToken()
+ <input type="hidden" name="Id" value="@Model.Id" />
+ <div class="form-group">
+ <label for="Nom">Nombre:</label>
+ <input type="text" class="form-control" id="Nom" name="Nom" value="@Model.Nom" required />
+ </div>
+ <div class="form-group">
+ <label for="Des">Descripcion:</label>
+ <textarea class="form-control" id="Des" name="Des">@Model.Des</textarea>
+ </div>
+ <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

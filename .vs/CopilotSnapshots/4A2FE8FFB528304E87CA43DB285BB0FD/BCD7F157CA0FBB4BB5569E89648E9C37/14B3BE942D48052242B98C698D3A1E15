@@ -1,0 +1,60 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using personapi_dotnet.Models.Entities;
+using personapi_dotnet.Repository;
+
+namespace personapi_dotnet.Controllers
+{
+ public class TelefonoController : Controller
+ {
+ private readonly TelefonoRepository _repo;
+ public TelefonoController(TelefonoRepository repo)
+ {
+ _repo = repo;
+ }
+
+ public async Task<IActionResult> Index()
+ {
+ return View(await _repo.findAll());
+ }
+
+ [HttpGet]
+ public IActionResult Add()
+ {
+ return View("FormularioCrear");
+ }
+
+ [HttpPost]
+ [ValidateAntiForgeryToken]
+ public async Task<IActionResult> Add(Telefono telefono)
+ {
+ if (!ModelState.IsValid)
+ return View("FormularioCrear", telefono);
+
+ await _repo.create(telefono);
+ return RedirectToAction(nameof(Index));
+ }
+
+ public async Task<IActionResult> Edit(int id)
+ {
+ var item = await _repo.findById(id);
+ return View("FormularioEditar", item);
+ }
+
+ [HttpPost]
+ [ValidateAntiForgeryToken]
+ public async Task<IActionResult> Edit(Telefono telefono)
+ {
+ if (!ModelState.IsValid)
+ return View("FormularioEditar", telefono);
+
+ await _repo.update(telefono);
+ return RedirectToAction(nameof(Index));
+ }
+
+ public async Task<IActionResult> Delete(int id)
+ {
+ await _repo.delete(id);
+ return RedirectToAction(nameof(Index));
+ }
+ }
+}

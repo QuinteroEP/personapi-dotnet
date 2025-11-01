@@ -1,0 +1,66 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using personapi_dotnet.Models.Entities;
+using personapi_dotnet.Repository;
+using personapi_dotnet.Interface;
+
+using System.Linq;
+
+namespace personapi_dotnet.Controllers
+{
+    public class PersonaController : Controller
+    {
+
+        private readonly EntityInterface<Persona> _repo;
+        public PersonaController(EntityInterface<Persona> repository)
+        {
+            _repo = repository;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await _repo.findAll());
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var persona = await _repo.findById(id);
+            return View("FormularioEditar", persona);
+        }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View("FormularioCrear");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Add(Persona persona)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("FormularioCrear", persona);
+            }
+
+            await _repo.create(persona);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> getTelefono()
+        {
+            return View(await (_repo as personapi_dotnet.Repository.PersonaRepository).getTelefonos());
+        }
+
+        public async Task<IActionResult> getUniversidad()
+        {
+            return View(await (_repo as personapi_dotnet.Repository.PersonaRepository).getUniversidad());
+        }
+
+        public async Task<IActionResult> Delete(int Id)
+        {
+            await _repo.delete(Id);
+
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}

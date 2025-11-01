@@ -1,0 +1,44 @@
+﻿using Microsoft.EntityFrameworkCore;
+using personapi_dotnet.Models.Entities;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ArqPerDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
+});
+
+// Register repository implementations
+builder.Services.AddScoped<personapi_dotnet.Repository.PersonaRepository>();
+builder.Services.AddScoped<personapi_dotnet.Interface.EntityInterface<personapi_dotnet.Models.Entities.Persona>, personapi_dotnet.Repository.PersonaRepository>();
+
+builder.Services.AddScoped<personapi_dotnet.Repository.ProfesionRepository>();
+builder.Services.AddScoped<personapi_dotnet.Interface.EntityInterface<personapi_dotnet.Models.Entities.Profesion>, personapi_dotnet.Repository.ProfesionRepository>();
+
+builder.Services.AddScoped<personapi_dotnet.Repository.EstudioRepository>();
+builder.Services.AddScoped<personapi_dotnet.Interface.EntityInterface<personapi_dotnet.Models.Entities.Estudio>, personapi_dotnet.Repository.EstudioRepository>();
+
+builder.Services.AddScoped<personapi_dotnet.Repository.TelefonoRepository>();
+builder.Services.AddScoped<personapi_dotnet.Interface.EntityInterface<personapi_dotnet.Models.Entities.Telefono>, personapi_dotnet.Repository.TelefonoRepository>();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+}
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Run();
