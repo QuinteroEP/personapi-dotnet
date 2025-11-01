@@ -21,6 +21,8 @@ services:
     container_name: webapp
     depends_on:
       - sqlserver
+    ports:
+      - "8080:8080"
     networks:
       - appnet
 

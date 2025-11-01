@@ -1,6 +1,8 @@
 ﻿@model List<personapi_dotnet.Models.Entities.Persona>
+@{var cantiad = Model.Count;}
 
     <h1>Personas</h1>
+    <a asp-action="Create" class="btn btn-success">Registrar Nueva Persona</a>
     <table class="table">
         <thead>
             <tr>
@@ -10,6 +12,7 @@
                 <th>Telefono</th>
                 <th>Genero</th>
                 <th>Universidad</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -29,12 +32,29 @@
                         }
                         else
                         {
-                            <text>No tiene telefonos</text>
+                            <p>No tiene telefonos</p>
                         }
                     </td>
                     <td>@persona.Genero</td>
-                    <td></td>
+                    <td>
+                        @if (persona.Estudios != null && persona.Estudios.Count > 0)
+                        {
+                            foreach (var est in persona.Estudios)
+                            {
+                                @est.Univer <br />
+                            }
+                        }
+                        else
+                        {
+                            <p>No ha estudiado</p>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@persona.Cc" class="btn btn-primary">Editar Informacion</a>
+                        <a asp-action="Delete" asp-route-id="@persona.Cc" class="btn btn-danger">Eliminar</a>
+                    </td>
                 </tr>
-            })
+            }
         </tbody>
     </table>
+    <p>Personas registradas: @cantiad</p>
