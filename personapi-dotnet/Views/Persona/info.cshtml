@@ -1,0 +1,40 @@
+﻿@model personapi_dotnet.Models.Entities.Persona
+
+<h1>Informacion</h1>
+
+<h2>@Model.Nombre @Model.Apellido (@Model.Genero)</h2><br />
+<h3><strong>Cedula:</strong> @Model.Cc</h3>
+
+<h2>Informacion de contacto</h2>
+@if (Model.Telefonos != null && Model.Telefonos.Any())
+{
+    <ul>
+        @foreach (var tel in Model.Telefonos)
+        {
+            <li>
+                @tel.Num (@tel.Oper)
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No hay teléfonos registrados.</p>
+}
+
+<h2>Estudios</h2>
+@if (Model.Estudios != null && Model.Estudios.Any())
+{
+    <ul>
+        @foreach (var est in Model.Estudios)
+        {
+            <li>
+                <strong>@est.Univer</strong> (@est.Fecha)
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No hay teléfonos registrados.</p>
+}

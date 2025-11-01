@@ -17,7 +17,7 @@ services:
   personapi-dotnet:
     build:
       context: .
-      dockerfile: /Dockerfile
+      dockerfile: ./Dockerfile
     container_name: webapp
     depends_on:
       - sqlserver

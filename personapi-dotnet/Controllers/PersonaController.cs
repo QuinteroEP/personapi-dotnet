@@ -20,22 +20,43 @@ namespace personapi_dotnet.Controllers
             return View(await _repo.findAll());
         }
 
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Info(int id)
         {
-
-            return View("FormularioEditar");
+            var persona = await _repo.findById(id);
+            if (persona == null)
+                return NotFound();
+            return View("info", persona);
         }
 
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            var persona = await _repo.findById(id);
+            return View("FormularioEditar", persona);
         }
 
-        [HttpPost]
-        public async void Add(Persona persona)
+        public async Task<IActionResult> Edit(Persona persona)
         {
+            if (!ModelState.IsValid)
+                return View(persona);
+
+            await _repo.update(persona);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet] 
+        public IActionResult Add() 
+        { 
+            return View("FormularioCrear"); 
+        }
+
+        public async Task<IActionResult> Add(Persona persona)
+        {
+            if (!ModelState.IsValid)
+                return View(persona);
+
             await _repo.create(persona);
+            return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> getTelefono()
@@ -48,11 +69,11 @@ namespace personapi_dotnet.Controllers
             return View(await _repo.getUniversidad());
         }
 
-        public async void Delete(int Id)
+        public async Task<IActionResult> Delete(int Id)
         {
             await _repo.delete(Id);
 
-            RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
     }
 }

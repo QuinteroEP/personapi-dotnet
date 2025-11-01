@@ -3,12 +3,15 @@
 
     <h1>Personas</h1>
     <a asp-action="Add" class="btn btn-success">Registrar Nueva Persona</a>
+    <form asp-action="Info" method="get" class="form-inline">
+        <input type="text" id="Cc" name="id" placeholder="Buscar por cédula" class="form-control mt-3 mb-3" />
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
     <table class="table">
         <thead>
             <tr>
                 <th>Cedula</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
                 <th>Telefono</th>
                 <th>Universidad</th>
                 <th></th>
@@ -19,8 +22,7 @@
             {
                 <tr>
                     <td>@persona.Cc</td>
-                    <td>@persona.Nombre</td>
-                    <td>@persona.Apellido</td>
+                    <td>@persona.Nombre @persona.Apellido</td>
                     <td>
                         @if (persona.Telefonos != null && persona.Telefonos.Count > 0)
                         {
@@ -48,7 +50,6 @@
                         }
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@persona.Cc" class="btn btn-primary">Más Informacion</a>
                         <a asp-action="Edit" asp-route-id="@persona.Cc" class="btn btn-primary">Editar Informacion</a>
                         <a asp-action="Delete" asp-route-id="@persona.Cc" class="btn btn-danger">Eliminar</a>
                     </td>

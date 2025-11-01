@@ -12,6 +12,8 @@ builder.Services.AddDbContext<ArqPerDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
 });
 
+builder.Services.AddScoped<PersonaRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

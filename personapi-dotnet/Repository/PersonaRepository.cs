@@ -27,7 +27,6 @@ namespace personapi_dotnet.Repository
                 .ToListAsync();
 
             _context.Estudios.RemoveRange(estudios);
-            await _context.SaveChangesAsync();
 
             // Step 2: Delete all Telefonos for that Persona
             var telefonos = await _context.Telefonos
@@ -35,17 +34,13 @@ namespace personapi_dotnet.Repository
                 .ToListAsync();
 
             _context.Telefonos.RemoveRange(telefonos);
-            await _context.SaveChangesAsync();
 
             // Step 3: Delete the Persona itself
             var persona = await _context.Personas
                 .FirstOrDefaultAsync(p => p.Cc == id);
 
-            if (persona != null)
-            {
-                _context.Personas.Remove(persona);
-                await _context.SaveChangesAsync();
-            }
+             _context.Personas.Remove(persona!);
+             await _context.SaveChangesAsync();
         }
 
         public async Task<List<Persona>> findAll()
@@ -64,12 +59,19 @@ namespace personapi_dotnet.Repository
                 .Include(p => p.Estudios)
                 .Where(p => p.Cc == id)
                 .FirstAsync();
+
+            if (persona == null)
+            {
+                throw new Exception("Persona not found");
+            }
+
             return persona;
         }
 
         public async Task update(Persona data)
         {
-            throw new NotImplementedException();
+            _context.Personas.Update(data);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<Telefono>> getTelefonos()
