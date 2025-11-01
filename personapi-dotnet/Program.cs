@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using personapi_dotnet.Models.Entities;
+using personapi_dotnet.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

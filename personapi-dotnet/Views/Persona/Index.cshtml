@@ -2,7 +2,7 @@
 @{var cantiad = Model.Count;}
 
     <h1>Personas</h1>
-    <a asp-action="Create" class="btn btn-success">Registrar Nueva Persona</a>
+    <a asp-action="Add" class="btn btn-success">Registrar Nueva Persona</a>
     <table class="table">
         <thead>
             <tr>
@@ -10,7 +10,6 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Telefono</th>
-                <th>Genero</th>
                 <th>Universidad</th>
                 <th></th>
             </tr>
@@ -35,7 +34,6 @@
                             <p>No tiene telefonos</p>
                         }
                     </td>
-                    <td>@persona.Genero</td>
                     <td>
                         @if (persona.Estudios != null && persona.Estudios.Count > 0)
                         {
@@ -50,6 +48,7 @@
                         }
                     </td>
                     <td>
+                        <a asp-action="Edit" asp-route-id="@persona.Cc" class="btn btn-primary">Más Informacion</a>
                         <a asp-action="Edit" asp-route-id="@persona.Cc" class="btn btn-primary">Editar Informacion</a>
                         <a asp-action="Delete" asp-route-id="@persona.Cc" class="btn btn-danger">Eliminar</a>
                     </td>

@@ -1,74 +1,58 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using personapi_dotnet.Models.Entities;
+using personapi_dotnet.Repository;
+
 using System.Linq;
 
 namespace personapi_dotnet.Controllers
 {
     public class PersonaController : Controller
     {
-        private readonly ArqPerDbContext _context;
 
-        public PersonaController(ArqPerDbContext context)
+        private readonly PersonaRepository _repo;
+        public PersonaController(PersonaRepository repository)
         {
-            _context = context;
+            _repo = repository;
         }
         public async Task<IActionResult> Index()
         {
-            var personas = await _context.Personas
-                .Include(p => p.Telefonos)
-                .ToListAsync();
+            return View(await _repo.findAll());
+        }
 
-            return View(personas);
+        public async Task<IActionResult> Edit(int id)
+        {
+
+            return View("FormularioEditar");
+        }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async void Add(Persona persona)
+        {
+            await _repo.create(persona);
         }
 
         public async Task<IActionResult> getTelefono()
         {
-            var persona = await _context.Personas
-                .Include(p => p.Telefonos)
-                .FirstOrDefaultAsync();
-
-            var telefonos = await _context.Telefonos
-                .Where(t => t.Duenio.Equals(persona))
-                .ToListAsync();
-
-            foreach (var telefono in telefonos)
-            {
-                persona?.Telefonos.Add(telefono);
-            }
-
-            return View(await _context.Telefonos.ToListAsync());
+            return View(await _repo.getTelefonos());
         }
 
         public async Task<IActionResult> getUniversidad()
         {
-            var persona = await _context.Personas
-                .Include(p => p.Estudios)
-                .FirstOrDefaultAsync();
-
-            var universidad = await _context.Estudios
-                .Where(u => u.CcPer.Equals(persona))
-                .ToListAsync();
-
-            foreach (var uni in universidad)
-            {
-                persona?.Estudios.Add(uni);
-            }
-
-            return View(await _context.Estudios.ToListAsync());
+            return View(await _repo.getUniversidad());
         }
 
-        public async Task<IActionResult> Delete(int Id)
+        public async void Delete(int Id)
         {
-            var persona = await _context.Personas
-                .Where(p => p.Cc.Equals(Id))
-                .FirstOrDefaultAsync();
+            await _repo.delete(Id);
 
-            _context.Estudios.RemoveRange(persona!.Estudios);
-            _context.Personas.Remove(persona!);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
+            RedirectToAction(nameof(Index));
         }
     }
 }
