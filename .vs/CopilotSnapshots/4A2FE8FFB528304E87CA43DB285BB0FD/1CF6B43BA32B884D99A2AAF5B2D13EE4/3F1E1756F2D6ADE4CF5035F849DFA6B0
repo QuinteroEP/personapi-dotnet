@@ -1,4 +1,4 @@
-{
+﻿{
   "Logging": {
     "LogLevel": {
       "Default": "Information",
@@ -8,6 +8,6 @@
   "AllowedHosts": "*",
 
   "ConnectionStrings": {
-    "Connection": "Server=sqlserver,1433;Database=arq_per_db;User Id=sa;Password=DB4dmin!;TrustServerCertificate=true;"
+    "Connection": "Server=sqldb,1433;Database=arq_per_db;User Id=sa;Password=DB4dmin!;TrustServerCertificate=true;"
   }
 }

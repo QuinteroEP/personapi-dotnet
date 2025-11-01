@@ -169,3 +169,6 @@ C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\bin\Debug\
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.csproj.AssemblyReference.cache
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personap.2C6DADCB.Up2Date
+S:\ofefas\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.dll
+S:\ofefas\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\refint\personapi-dotnet.dll
+S:\ofefas\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.pdb
