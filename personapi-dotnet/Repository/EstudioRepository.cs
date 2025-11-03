@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using personapi_dotnet.Interface;
 using personapi_dotnet.Models.Entities;
 
@@ -36,14 +36,27 @@ namespace personapi_dotnet.Repository
 
  public async Task<Estudio> findById(int id)
  {
- // using composite key; return first matching cc_per
  return await _context.Estudios.FirstAsync(e => e.CcPer == id);
  }
 
  public async Task update(Estudio data)
  {
- _context.Estudios.Update(data);
- await _context.SaveChangesAsync();
- }
+            // Load the tracked entity from the DB
+            var existing = await _context.Estudios
+                .FindAsync(data.IdProf, data.CcPer);
+
+            if (existing == null)
+            {
+                Console.WriteLine("⚠️ Record not found");
+                return;
+            }
+
+            // Update only the scalar fields
+            existing.Univer = data.Univer;
+            existing.Fecha = data.Fecha;
+
+            // Save changes
+            await _context.SaveChangesAsync();
+        }
  }
 }

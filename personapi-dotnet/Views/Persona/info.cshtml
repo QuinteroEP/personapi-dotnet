@@ -2,8 +2,10 @@
 
 <h1>Informacion</h1>
 
-<h2>@Model.Nombre @Model.Apellido (@Model.Genero)</h2><br />
+<h2>@Model.Nombre @Model.Apellido (@Model.Edad años)</h2>
+<br />
 <h3><strong>Cedula:</strong> @Model.Cc</h3>
+<p>Genero: @Model.Genero</p>
 
 <h2>Informacion de contacto</h2>
 @if (Model.Telefonos != null && Model.Telefonos.Any())

@@ -1,5 +1,4 @@
 ﻿@model List<personapi_dotnet.Models.Entities.Persona>
-@{var cantiad = Model.Count;}
 
     <h1>Personas</h1>
     <a asp-action="Add" class="btn btn-success">Registrar Nueva Persona</a>
@@ -12,8 +11,8 @@
             <tr>
                 <th>Cedula</th>
                 <th>Nombre</th>
-                <th>Telefono</th>
-                <th>Universidad</th>
+                <th>Telefono(s)</th>
+                <th>Estudiante de</th>
                 <th></th>
             </tr>
         </thead>
@@ -28,7 +27,9 @@
                         {
                             foreach (var telefono in persona.Telefonos)
                             {
-                                @telefono.Num <br />
+                                <ul>
+                                    <li>@telefono.Num</li>
+                                </ul>
                             }
                         }
                         else
@@ -41,7 +42,9 @@
                         {
                             foreach (var est in persona.Estudios)
                             {
-                                @est.Univer <br />
+                                <ul>
+                                    <li>@est.Univer</li>
+                                </ul>
                             }
                         }
                         else
@@ -57,4 +60,4 @@
             }
         </tbody>
     </table>
-    <p>Personas registradas: @cantiad</p>
+    <p>Personas registradas: @Model.Count</p>

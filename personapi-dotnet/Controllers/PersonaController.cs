@@ -1,13 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using personapi_dotnet.Models.Entities;
-using personapi_dotnet.Repository;
 using personapi_dotnet.Interface;
-
-using System.Linq;
 
 namespace personapi_dotnet.Controllers
 {
+    [Route("[controller]")]
     public class PersonaController : Controller
     {
 
@@ -16,11 +13,14 @@ namespace personapi_dotnet.Controllers
         {
             _repo = repository;
         }
+
+        [HttpGet("Index")]
         public async Task<IActionResult> Index()
         {
             return View(await _repo.findAll());
         }
 
+        [HttpGet("Info")]
         public async Task<IActionResult> Info(int id)
         {
             var persona = await _repo.findById(id);
@@ -29,13 +29,14 @@ namespace personapi_dotnet.Controllers
             return View("info", persona);
         }
 
-        [HttpGet]
+        [HttpGet("Edit")]
         public async Task<IActionResult> Edit(int id)
         {
             var persona = await _repo.findById(id);
             return View("FormularioEditar", persona);
         }
 
+        [HttpPost("Edit")]
         public async Task<IActionResult> Edit(Persona persona)
         {
             if (!ModelState.IsValid)
@@ -45,13 +46,13 @@ namespace personapi_dotnet.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpGet] 
-        public IActionResult Add() 
-        { 
-            return View("FormularioCrear"); 
+        [HttpGet("Add")]
+        public IActionResult Add()
+        {
+            return View("FormularioCrear");
         }
 
-        [HttpPost]
+        [HttpPost("Add")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(Persona persona)
         {
@@ -64,16 +65,19 @@ namespace personapi_dotnet.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> getTelefono()
+        [HttpGet("Telefonos")]
+        public async Task<IActionResult> getTelefonos()
         {
             return View(await _repo.getTelefonos());
         }
 
-        public async Task<IActionResult> getUniversidad()
+        [HttpGet("Universidades")]
+        public async Task<IActionResult> getUniversidades()
         {
             return View(await _repo.getUniversidad());
         }
 
+        [HttpGet("Delete")]
         public async Task<IActionResult> Delete(int Id)
         {
             await _repo.delete(Id);

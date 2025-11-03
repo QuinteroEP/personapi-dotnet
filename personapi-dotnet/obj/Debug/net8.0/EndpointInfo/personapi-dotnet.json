@@ -1,0 +1,27 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Swagger UI Personalized .Net 9",
+    "description": " Thanks for sharing.",
+    "contact": {
+      "name": "Juan Diego Romero, Pablo Enrique Quintero y Kamilt Bejarano Diaz"
+    },
+    "version": "Version .Net 9.0.x"
+  },
+  "paths": { },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": [ ]
+    }
+  ]
+}

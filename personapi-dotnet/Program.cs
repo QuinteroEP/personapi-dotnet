@@ -3,6 +3,7 @@ using personapi_dotnet.Models.Entities;
 using System.IO;
 using Microsoft.AspNetCore.DataProtection;
 using personapi_dotnet.Interface;
+using personapi_dotnet.Modules.Swagger; 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,13 +36,27 @@ builder.Services.AddScoped<personapi_dotnet.Interface.EntityInterface<personapi_
 builder.Services.AddScoped<personapi_dotnet.Repository.TelefonoRepository>();
 builder.Services.AddScoped<personapi_dotnet.Interface.EntityInterface<personapi_dotnet.Models.Entities.Telefono>, personapi_dotnet.Repository.TelefonoRepository>();
 
+builder.Services.AddSwagger();
+
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 
 if (!app.Environment.IsDevelopment())
 {
- app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/Home/Error");
 }
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger UI Modified V.2");
+    c.RoutePrefix = "swagger";
+});
+
 app.UseStaticFiles();
 
 app.UseRouting();

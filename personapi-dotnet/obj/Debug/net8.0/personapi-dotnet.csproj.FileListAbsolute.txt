@@ -172,3 +172,11 @@ C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\
 S:\ofefas\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.dll
 S:\ofefas\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\refint\personapi-dotnet.dll
 S:\ofefas\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.pdb
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\personapi-dotnet.xml
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.xml
