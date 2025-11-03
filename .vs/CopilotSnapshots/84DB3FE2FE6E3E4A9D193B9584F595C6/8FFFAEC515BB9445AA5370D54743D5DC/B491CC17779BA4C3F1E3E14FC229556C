@@ -1,0 +1,31 @@
+﻿@model personapi_dotnet.Models.Entities.Telefono
+
+<h1>Editar Telefono</h1>
+@Html.ValidationSummary(true, "Error:")
+<form asp-action="Edit" asp-controller="Telefono" method="post">
+ @Html.AntiForgeryToken()
+ <!-- Keep original number so repository can locate the record if user changes the Num -->
+ <input type="hidden" name="OriginalNum" value="@Model.Num" />
+ <div class="form-group">
+ <label asp-for="Num">Numero:</label>
+ <input asp-for="Num" type="text" class="form-control" id="Num" name="Num" value="@Model.Num" />
+ </div>
+ <div class="form-group">
+ <label for="Duenio">Persona:</label>
+ <select class="form-control" id="Duenio" name="Duenio" required>
+ <option value="">-- Seleccione --</option>
+ @if (ViewBag.Personas != null)
+ {
+ foreach (var pe in (List<personapi_dotnet.Models.Entities.Persona>)ViewBag.Personas)
+ {
+ <option value="@pe.Cc" @(pe.Cc == Model.Duenio ? "selected" : "")>@pe.Cc - @pe.Nombre @pe.Apellido</option>
+ }
+ }
+ </select>
+ </div>
+ <div class="form-group">
+ <label asp-for="Oper">Operador</label>
+ <input asp-for="Oper" type="text" class="form-control" id="Oper" name="Oper" value="@Model.Oper" />
+ </div>
+ <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

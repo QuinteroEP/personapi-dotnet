@@ -180,3 +180,4 @@ C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\bin\Debug\
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Pablo\Desktop\Repositorios\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.xml
+S:\ofefas\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.xml

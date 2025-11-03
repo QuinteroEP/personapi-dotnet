@@ -1,19 +1,21 @@
 @model personapi_dotnet.Models.Entities.Estudio
 
 <h1>Editar Estudio</h1>
+@Html.ValidationSummary(true, "Error:")
 <form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
     <input type="hidden" name="CcPer" value="@Model.CcPer" />
     <input type="hidden" name="IdProf" value="@Model.IdProf" />
     <div class="form-group">
-        <label asp-for="IdProf">Id Estudiante: @Model.CcPer</label>
+        <label>Profesion: @Model.IdProf</label>
     </div>
     <div class="form-group">
-        <label asp-for="Univer">Universidad:</label>
+        <label for="Univer">Universidad:</label>
         <input asp-for="Univer" type="text" class="form-control" id="Univer" name="Univer" value="@Model.Univer" />
     </div>
     <div class="form-group">
-        <label asp-for="Fecha">Fecha:</label>
-        <input asp-for="Fecha" type="date" class="form-control" id="Fecha" name="Fecha" value="@Model.Fecha" />
+        <label for="Fecha">Fecha:</label>
+        <input asp-for="Fecha" type="date" class="form-control" id="Fecha" name="Fecha" value="@(Model.Fecha?.ToString("yyyy-MM-dd"))" />
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>

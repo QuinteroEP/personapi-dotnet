@@ -3,6 +3,7 @@ using personapi_dotnet.Models.Entities;
 using personapi_dotnet.Repository;
 using Microsoft.EntityFrameworkCore;
 using personapi_dotnet.Interface;
+using Microsoft.Extensions.Logging;
 
 namespace personapi_dotnet.Controllers
 {
@@ -11,11 +12,13 @@ namespace personapi_dotnet.Controllers
     {
         private readonly TelefonoRepository _repo;
         private readonly IPersonaRepository _personaRepo;
+        private readonly ILogger<TelefonoController> _logger;
 
-        public TelefonoController(TelefonoRepository repo, IPersonaRepository personaRepo)
+        public TelefonoController(TelefonoRepository repo, IPersonaRepository personaRepo, ILogger<TelefonoController> logger)
         {
             _repo = repo;
             _personaRepo = personaRepo;
+            _logger = logger;
         }
 
         [HttpGet("Index")]
@@ -54,6 +57,7 @@ namespace personapi_dotnet.Controllers
             }
             catch (DbUpdateException ex)
             {
+                _logger.LogError(ex, "Error creating telefono");
                 ModelState.AddModelError(string.Empty, ex.InnerException?.Message ?? ex.Message);
                 ViewBag.Personas = personas;
                 return View("FormularioCrear", telefono);
@@ -63,28 +67,71 @@ namespace personapi_dotnet.Controllers
         }
 
         [HttpGet("Edit")]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(string num)
         {
-            var item = await _repo.findById(id);
+            if (string.IsNullOrEmpty(num))
+                return BadRequest();
+
+            var item = await _repo.findByNum(num);
             ViewBag.Personas = await _personaRepo.findAll();
             return View("FormularioEditar", item);
         }
 
         [HttpPost("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Telefono telefono)
+        public async Task<IActionResult> Edit(IFormCollection form)
         {
-            if (!ModelState.IsValid)
-                return View("FormularioEditar", telefono);
+            // Manually bind from form to avoid binder issues
+            var telefono = new Telefono();
+            telefono.Num = form["Num"];
+            telefono.Oper = form["Oper"];
+            if (int.TryParse(form["Duenio"], out var duenio))
+                telefono.Duenio = duenio;
 
-            await _repo.update(telefono);
+            var originalNum = form["originalNum"].ToString();
+
+            _logger.LogInformation("Telefono Edit POST received (form): Num='{Num}', Oper='{Oper}', Duenio='{Duenio}', originalNum='{OriginalNum}'", telefono?.Num, telefono?.Oper, telefono?.Duenio, originalNum);
+
+            var personas = await _personaRepo.findAll();
+            if (!personas.Any(p => p.Cc == telefono.Duenio))
+            {
+                ModelState.AddModelError(string.Empty, "La persona seleccionada no existe. Por favor registra primero la persona.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Where(kvp => kvp.Value.Errors.Any())
+                    .Select(kvp => new { Key = kvp.Key, Errors = kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray() })
+                    .ToArray();
+                _logger.LogWarning("ModelState invalid on Telefono Edit POST (form): {Errors}", errors);
+
+                ViewBag.Personas = personas;
+                return View("FormularioEditar", telefono);
+            }
+
+            try
+            {
+                await _repo.update(telefono, originalNum);
+                _logger.LogInformation("Telefono updated: {Num}", telefono.Num);
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "DbUpdateException updating telefono {Num}", telefono.Num);
+                ModelState.AddModelError(string.Empty, ex.InnerException?.Message ?? ex.Message);
+                ViewBag.Personas = personas;
+                return View("FormularioEditar", telefono);
+            }
+
             return RedirectToAction(nameof(Index));
         }
 
         [HttpGet("Delete")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string num)
         {
-            await _repo.delete(id);
+            if (string.IsNullOrEmpty(num))
+                return BadRequest();
+
+            await _repo.deleteByNum(num);
             return RedirectToAction(nameof(Index));
         }
     }

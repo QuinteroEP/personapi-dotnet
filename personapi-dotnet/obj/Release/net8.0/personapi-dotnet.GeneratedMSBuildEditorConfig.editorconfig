@@ -52,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[S:/ofefas/personapi-dotnet/personapi-dotnet/Views/Persona/info.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxpbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [S:/ofefas/personapi-dotnet/personapi-dotnet/Views/Profesion/FormularioCrear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzaW9uXEZvcm11bGFyaW9DcmVhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

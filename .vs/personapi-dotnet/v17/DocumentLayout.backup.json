@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\",
+  "WorkspaceRootPath": "S:\\ofefas\\personapi-dotnet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|c:\\users\\pablo\\desktop\\repositorios\\personapi-dotnet\\personapi-dotnet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|solutionrelative:personapi-dotnet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\PersonaController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:personapi-dotnet\\Controllers\\PersonaController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|c:\\users\\pablo\\desktop\\repositorios\\personapi-dotnet\\personapi-dotnet\\repository\\estudiorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|solutionrelative:personapi-dotnet\\repository\\estudiorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\EstudioController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:personapi-dotnet\\Controllers\\EstudioController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|c:\\users\\pablo\\desktop\\repositorios\\personapi-dotnet\\personapi-dotnet\\models\\entities\\telefono.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|solutionrelative:personapi-dotnet\\models\\entities\\telefono.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\ProfesionController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:personapi-dotnet\\Controllers\\ProfesionController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|c:\\users\\pablo\\desktop\\repositorios\\personapi-dotnet\\personapi-dotnet\\models\\entities\\estudio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|solutionrelative:personapi-dotnet\\models\\entities\\estudio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\TelefonoController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:personapi-dotnet\\Controllers\\TelefonoController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|c:\\users\\pablo\\desktop\\repositorios\\personapi-dotnet\\personapi-dotnet\\views\\estudio\\formularioeditar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|solutionrelative:personapi-dotnet\\views\\estudio\\formularioeditar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Repository\\TelefonoRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:personapi-dotnet\\Repository\\TelefonoRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|c:\\users\\pablo\\desktop\\repositorios\\personapi-dotnet\\personapi-dotnet\\views\\telefono\\formularioeditar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{20FD174B-F865-4D7A-BD6B-05AA448EFE32}|personapi-dotnet\\personapi-dotnet.csproj|solutionrelative:personapi-dotnet\\views\\telefono\\formularioeditar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Repository\\EstudioRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:personapi-dotnet\\Repository\\EstudioRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,90 +33,88 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 219,
+          "SelectedChildIndex": 4,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Program.cs",
-              "RelativeDocumentMoniker": "personapi-dotnet\\Program.cs",
-              "ToolTip": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Program.cs",
-              "RelativeToolTip": "personapi-dotnet\\Program.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T01:41:55.334Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Telefono.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Models\\Entities\\Telefono.cs",
-              "RelativeDocumentMoniker": "personapi-dotnet\\Models\\Entities\\Telefono.cs",
-              "ToolTip": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Models\\Entities\\Telefono.cs",
-              "RelativeToolTip": "personapi-dotnet\\Models\\Entities\\Telefono.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T01:19:30.534Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EstudioRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Repository\\EstudioRepository.cs",
-              "RelativeDocumentMoniker": "personapi-dotnet\\Repository\\EstudioRepository.cs",
-              "ToolTip": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Repository\\EstudioRepository.cs",
-              "RelativeToolTip": "personapi-dotnet\\Repository\\EstudioRepository.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwBwAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T01:16:32.374Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Estudio.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Models\\Entities\\Estudio.cs",
-              "RelativeDocumentMoniker": "personapi-dotnet\\Models\\Entities\\Estudio.cs",
-              "ToolTip": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Models\\Entities\\Estudio.cs",
-              "RelativeToolTip": "personapi-dotnet\\Models\\Entities\\Estudio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T01:15:21.392Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "FormularioEditar.cshtml",
-              "DocumentMoniker": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Views\\Telefono\\FormularioEditar.cshtml",
-              "RelativeDocumentMoniker": "personapi-dotnet\\Views\\Telefono\\FormularioEditar.cshtml",
-              "ToolTip": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Views\\Telefono\\FormularioEditar.cshtml",
-              "RelativeToolTip": "personapi-dotnet\\Views\\Telefono\\FormularioEditar.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-03T00:49:51.616Z",
+              "Title": "EstudioRepository.cs",
+              "DocumentMoniker": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Repository\\EstudioRepository.cs",
+              "RelativeDocumentMoniker": "personapi-dotnet\\Repository\\EstudioRepository.cs",
+              "ToolTip": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Repository\\EstudioRepository.cs",
+              "RelativeToolTip": "personapi-dotnet\\Repository\\EstudioRepository.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T16:17:18.334Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "FormularioEditar.cshtml",
-              "DocumentMoniker": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Views\\Estudio\\FormularioEditar.cshtml",
-              "RelativeDocumentMoniker": "personapi-dotnet\\Views\\Estudio\\FormularioEditar.cshtml",
-              "ToolTip": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\Views\\Estudio\\FormularioEditar.cshtml",
-              "RelativeToolTip": "personapi-dotnet\\Views\\Estudio\\FormularioEditar.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-03T00:34:09.819Z",
+              "Title": "TelefonoRepository.cs",
+              "DocumentMoniker": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Repository\\TelefonoRepository.cs",
+              "RelativeDocumentMoniker": "personapi-dotnet\\Repository\\TelefonoRepository.cs",
+              "ToolTip": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Repository\\TelefonoRepository.cs",
+              "RelativeToolTip": "personapi-dotnet\\Repository\\TelefonoRepository.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T16:17:07.5Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EstudioController.cs",
+              "DocumentMoniker": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\EstudioController.cs",
+              "RelativeDocumentMoniker": "personapi-dotnet\\Controllers\\EstudioController.cs",
+              "ToolTip": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\EstudioController.cs",
+              "RelativeToolTip": "personapi-dotnet\\Controllers\\EstudioController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T02:13:38.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PersonaController.cs",
+              "DocumentMoniker": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\PersonaController.cs",
+              "RelativeDocumentMoniker": "personapi-dotnet\\Controllers\\PersonaController.cs",
+              "ToolTip": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\PersonaController.cs",
+              "RelativeToolTip": "personapi-dotnet\\Controllers\\PersonaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T02:53:20.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProfesionController.cs",
+              "DocumentMoniker": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\ProfesionController.cs",
+              "RelativeDocumentMoniker": "personapi-dotnet\\Controllers\\ProfesionController.cs",
+              "ToolTip": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\ProfesionController.cs",
+              "RelativeToolTip": "personapi-dotnet\\Controllers\\ProfesionController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T02:30:10.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TelefonoController.cs",
+              "DocumentMoniker": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\TelefonoController.cs",
+              "RelativeDocumentMoniker": "personapi-dotnet\\Controllers\\TelefonoController.cs",
+              "ToolTip": "S:\\ofefas\\personapi-dotnet\\personapi-dotnet\\Controllers\\TelefonoController.cs",
+              "RelativeToolTip": "personapi-dotnet\\Controllers\\TelefonoController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAEBVwBIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T02:13:48.059Z",
+              "EditorCaption": ""
             }
           ]
         }

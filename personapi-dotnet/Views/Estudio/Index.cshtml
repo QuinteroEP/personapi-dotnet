@@ -21,7 +21,7 @@
                 <td>@item.Univer</td>
                 <td>@item.Fecha</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.CcPer" class="btn btn-primary">Editar</a>
+                    <a asp-action="Edit" asp-route-idProf="@item.IdProf" asp-route-ccPer="@item.CcPer" class="btn btn-primary">Editar</a>
                     <a asp-action="Delete" asp-route-id="@item.CcPer" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>

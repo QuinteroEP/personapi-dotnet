@@ -1,0 +1,17 @@
+﻿@model personapi_dotnet.Models.Entities.Telefono
+
+<h1>Editar Telefono</h1>
+@Html.ValidationSummary(true, "Error:")
+<form asp-action="Edit" asp-controller="Telefono" method="post">
+ @Html.AntiForgeryToken()
+ <input type="hidden" name="Duenio" value="@Model.Duenio" />
+ <div class="form-group">
+ <label asp-for="Oper">Operador</label>
+ <input asp-for="Oper" type="text" class="form-control" id="Oper" name="Oper" value="@Model.Oper" />
+ </div>
+ <div class="form-group">
+ <label asp-for="Num">Numero:</label>
+ <input asp-for="Num" type="text" class="form-control" id="Num" name="Num" value="@Model.Num" />
+ </div>
+ <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

@@ -19,8 +19,9 @@
                 <td>@item.Oper</td>
                 <td>@item.Duenio</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Duenio" class="btn btn-primary">Editar</a>
-                    <a asp-action="Delete" asp-route-id="@item.Duenio" class="btn btn-danger">Eliminar</a>
+                    <!-- Pass the phone number as 'num' to the Edit and Delete actions -->
+                    <a asp-action="Edit" asp-route-num="@item.Num" class="btn btn-primary">Editar</a>
+                    <a asp-action="Delete" asp-route-num="@item.Num" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }

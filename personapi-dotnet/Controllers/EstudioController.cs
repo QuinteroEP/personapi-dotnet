@@ -95,21 +95,87 @@ namespace personapi_dotnet.Controllers
         }
 
         [HttpGet("Edit")]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int? idProf, int? ccPer, int? id)
         {
-            var item = await _repo.findById(id);
+            Estudio item;
+
+            if (idProf.HasValue && ccPer.HasValue)
+            {
+                item = await _repo.findById(idProf.Value, ccPer.Value);
+            }
+            else if (id.HasValue)
+            {
+                item = await _repo.findById(id.Value);
+            }
+            else
+            {
+                return BadRequest();
+            }
+
             ViewBag.Personas = await _personaRepo.findAll();
             ViewBag.Profesiones = await _profRepo.findAll();
             return View("FormularioEditar", item);
         }
 
         [HttpPost("Edit")]
-        public async Task<IActionResult> Edit(Estudio estudio)
+        public async Task<IActionResult> Edit(IFormCollection form)
         {
-            if (!ModelState.IsValid)
-                return View("FormularioEditar", estudio);
+            // Parse form values manually to avoid model binding issues with DateOnly
+            var estudio = new Estudio();
 
-            await _repo.update(estudio);
+            if (int.TryParse(form["IdProf"], out var idProf))
+                estudio.IdProf = idProf;
+
+            if (int.TryParse(form["CcPer"], out var ccPer))
+                estudio.CcPer = ccPer;
+
+            estudio.Univer = form["Univer"];
+
+            var fechaStr = form["Fecha"].ToString();
+            if (!string.IsNullOrWhiteSpace(fechaStr))
+            {
+                if (DateOnly.TryParse(fechaStr, out var dateOnly))
+                {
+                    estudio.Fecha = dateOnly;
+                }
+                else if (DateTime.TryParse(fechaStr, out var dt))
+                {
+                    estudio.Fecha = DateOnly.FromDateTime(dt);
+                }
+            }
+
+            // validate foreign keys exist
+            var personas = await _personaRepo.findAll();
+            var profesiones = await _profRepo.findAll();
+            if (!personas.Any(p => p.Cc == estudio.CcPer))
+            {
+                ModelState.AddModelError(string.Empty, "La persona seleccionada no existe. Por favor registra primero la persona.");
+            }
+
+            if (!profesiones.Any(p => p.Id == estudio.IdProf))
+            {
+                ModelState.AddModelError(string.Empty, "La profesion seleccionada no existe. Por favor registra primero la profesion.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Personas = personas;
+                ViewBag.Profesiones = profesiones;
+                return View("FormularioEditar", estudio);
+            }
+
+            try
+            {
+                await _repo.update(estudio);
+            }
+            catch (DbUpdateException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.InnerException?.Message ?? ex.Message);
+                ViewBag.Personas = personas;
+                ViewBag.Profesiones = profesiones;
+                return View("FormularioEditar", estudio);
+            }
+
             return RedirectToAction(nameof(Index));
         }
 
