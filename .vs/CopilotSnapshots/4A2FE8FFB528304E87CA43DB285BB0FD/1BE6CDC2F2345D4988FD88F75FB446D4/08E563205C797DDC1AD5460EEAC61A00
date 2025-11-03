@@ -1,0 +1,48 @@
+﻿using Microsoft.EntityFrameworkCore;
+using personapi_dotnet.Interface;
+using personapi_dotnet.Models.Entities;
+
+namespace personapi_dotnet.Repository
+{
+ public class ProfesionRepository : EntityInterface<Profesion>
+ {
+ private readonly ArqPerDbContext _context;
+
+ public ProfesionRepository(ArqPerDbContext context)
+ {
+ _context = context;
+ }
+
+ public async Task create(Profesion data)
+ {
+ _context.Professions.Add(data);
+ await _context.SaveChangesAsync();
+ }
+
+ public async Task delete(int id)
+ {
+ var item = await _context.Profesions.FirstOrDefaultAsync(p => p.Id == id);
+ if (item != null)
+ {
+ _context.Profesions.Remove(item);
+ await _context.SaveChangesAsync();
+ }
+ }
+
+ public async Task<List<Profesion>> findAll()
+ {
+ return await _context.Profesions.ToListAsync();
+ }
+
+ public async Task<Profesion> findById(int id)
+ {
+ return await _context.Profesions.FirstAsync(p => p.Id == id);
+ }
+
+ public async Task update(Profesion data)
+ {
+ _context.Profesions.Update(data);
+ await _context.SaveChangesAsync();
+ }
+ }
+}

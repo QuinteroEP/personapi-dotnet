@@ -1,0 +1,83 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using personapi_dotnet.Models.Entities;
+using personapi_dotnet.Repository;
+using Microsoft.AspNetCore.Http;
+
+namespace personapi_dotnet.Controllers
+{
+ public class EstudioController : Controller
+ {
+ private readonly EstudioRepository _repo;
+ public EstudioController(EstudioRepository repo)
+ {
+ _repo = repo;
+ }
+
+ public async Task<IActionResult> Index()
+ {
+ return View(await _repo.findAll());
+ }
+
+ [HttpGet]
+ public IActionResult Add()
+ {
+ return View("FormularioCrear");
+ }
+
+ [HttpPost]
+ [ValidateAntiForgeryToken]
+ public async Task<IActionResult> Add(IFormCollection form)
+ {
+ // Parse form values manually to avoid model binding issues with DateOnly
+ var estudio = new Estudio();
+
+ if (int.TryParse(form["IdProf"], out var idProf))
+ estudio.IdProf = idProf;
+
+ if (int.TryParse(form["CcPer"], out var ccPer))
+ estudio.CcPer = ccPer;
+
+ estudio.Univer = form["Univer"];
+
+ var fechaStr = form["Fecha"].ToString();
+ if (!string.IsNullOrWhiteSpace(fechaStr))
+ {
+ // Try parse as DateOnly (supported in .NET6+ with proper binder in later versions)
+ if (DateOnly.TryParse(fechaStr, out var dateOnly))
+ {
+ estudio.Fecha = dateOnly;
+ }
+ else if (DateTime.TryParse(fechaStr, out var dt))
+ {
+ estudio.Fecha = DateOnly.FromDateTime(dt);
+ }
+ }
+
+ await _repo.create(estudio);
+ return RedirectToAction(nameof(Index));
+ }
+
+ public async Task<IActionResult> Edit(int id)
+ {
+ var item = await _repo.findById(id);
+ return View("FormularioEditar", item);
+ }
+
+ [HttpPost]
+ [ValidateAntiForgeryToken]
+ public async Task<IActionResult> Edit(Estudio estudio)
+ {
+ if (!ModelState.IsValid)
+ return View("FormularioEditar", estudio);
+
+ await _repo.update(estudio);
+ return RedirectToAction(nameof(Index));
+ }
+
+ public async Task<IActionResult> Delete(int id)
+ {
+ await _repo.delete(id);
+ return RedirectToAction(nameof(Index));
+ }
+ }
+}

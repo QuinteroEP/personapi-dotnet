@@ -1,0 +1,31 @@
+@model personapi_dotnet.Models.Entities.Telefono
+
+<h1>Registrar Telefono</h1>
+
+@Html.ValidationSummary(true, "Error:")
+
+<form asp-action="Add" asp-controller="Telefono" method="post">
+ @Html.AntiForgeryToken()
+ <div class="form-group">
+ <label for="Num">Numero:</label>
+ <input type="text" class="form-control" id="Num" name="Num" required />
+ </div>
+ <div class="form-group">
+ <label for="Oper">Operador:</label>
+ <input type="text" class="form-control" id="Oper" name="Oper" />
+ </div>
+ <div class="form-group">
+ <label for="Duenio">Persona:</label>
+ <select class="form-control" id="Duenio" name="Duenio" required>
+ <option value="">-- Seleccione --</option>
+ @if (ViewBag.Personas != null)
+ {
+ foreach(var pe in (List<personapi_dotnet.Models.Entities.Persona>)ViewBag.Personas)
+ {
+ <option value="@pe.Cc">@pe.Cc - @pe.Nombre @pe.Apellido</option>
+ }
+ }
+ </select>
+ </div>
+ <button type="submit" class="btn btn-primary">Registrar</button>
+</form>

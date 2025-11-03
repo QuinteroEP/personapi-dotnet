@@ -1,0 +1,45 @@
+@model personapi_dotnet.Models.Entities.Estudio
+
+<h1>Registrar Estudio</h1>
+
+@Html.ValidationSummary(true, "Error:")
+
+<form asp-action="Add" asp-controller="Estudio" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="IdProf">Profesion:</label>
+        <select class="form-control" id="IdProf" name="IdProf" required>
+            <option value="">-- Seleccione --</option>
+            @if (ViewBag.Profesiones != null)
+            {
+                foreach(var p in (List<personapi_dotnet.Models.Entities.Profesion>)ViewBag.Profesiones)
+                {
+                    <option value="@p.Id">@p.Nom</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="CcPer">Persona:</label>
+        <select class="form-control" id="CcPer" name="CcPer" required>
+            <option value="">-- Seleccione --</option>
+            @if (ViewBag.Personas != null)
+            {
+                foreach(var pe in (List<personapi_dotnet.Models.Entities.Persona>)ViewBag.Personas)
+                {
+                    <option value="@pe.Cc">@pe.Cc - @pe.Nombre @pe.Apellido</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Univer">Universidad:</label>
+        <input type="text" class="form-control" id="Univer" name="Univer" />
+    </div>
+    <div class="form-group">
+        <label for="Fecha">Fecha:</label>
+        <input type="date" class="form-control" id="Fecha" name="Fecha" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>

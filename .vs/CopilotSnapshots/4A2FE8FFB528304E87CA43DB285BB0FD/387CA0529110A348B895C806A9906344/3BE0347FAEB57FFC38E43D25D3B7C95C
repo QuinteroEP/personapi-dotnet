@@ -1,0 +1,30 @@
+﻿@model List<personapi_dotnet.Models.Entities.Estudio>
+
+<h1>Estudios</h1>
+<a asp-action="Add" class="btn btn-success">Registrar Nuevo Estudio</a>
+<table class="table">
+ <thead>
+ <tr>
+ <th>Id Prof</th>
+ <th>CC Persona</th>
+ <th>Universidad</th>
+ <th>Fecha</th>
+ <th></th>
+ </tr>
+ </thead>
+ <tbody>
+ @foreach(var item in Model)
+ {
+ <tr>
+ <td>@item.IdProf</td>
+ <td>@item.CcPer</td>
+ <td>@item.Univer</td>
+ <td>@item.Fecha</td>
+ <td>
+ <a asp-action="Edit" asp-route-id="@item.CcPer" class="btn btn-primary">Editar</a>
+ <a asp-action="Delete" asp-route-id="@item.CcPer" class="btn btn-danger">Eliminar</a>
+ </td>
+ </tr>
+ }
+ </tbody>
+</table>

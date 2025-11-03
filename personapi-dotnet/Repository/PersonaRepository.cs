@@ -5,7 +5,7 @@ using personapi_dotnet.Models.Entities;
 
 namespace personapi_dotnet.Repository
 {
-    public class PersonaRepository : EntityInterface<Persona>
+    public class PersonaRepository : IPersonaRepository
     {
         private readonly ArqPerDbContext _context;
 
@@ -80,16 +80,21 @@ namespace personapi_dotnet.Repository
                 .Include(p => p.Telefonos)
                 .FirstOrDefaultAsync();
 
+            if (persona == null)
+                return new List<Telefono>();
+
             var telefonos = await _context.Telefonos
-                .Where(t => t.Duenio.Equals(persona))
+                .Where(t => t.Duenio == persona.Cc)
                 .ToListAsync();
 
+            // ensure persona navigation contains them
+            persona.Telefonos.Clear();
             foreach (var telefono in telefonos)
             {
-                persona?.Telefonos.Add(telefono);
+                persona.Telefonos.Add(telefono);
             }
 
-            return await _context.Telefonos.ToListAsync();
+            return telefonos;
         }
 
         public async Task<List<Estudio>> getUniversidad()
@@ -98,16 +103,20 @@ namespace personapi_dotnet.Repository
                 .Include(p => p.Estudios)
                 .FirstOrDefaultAsync();
 
+            if (persona == null)
+                return new List<Estudio>();
+
             var universidad = await _context.Estudios
-                .Where(u => u.CcPer.Equals(persona))
+                .Where(u => u.CcPer == persona.Cc)
                 .ToListAsync();
 
+            persona.Estudios.Clear();
             foreach (var uni in universidad)
             {
-                persona?.Estudios.Add(uni);
+                persona.Estudios.Add(uni);
             }
 
-            return await _context.Estudios.ToListAsync();
+            return universidad;
         }
     }
 }

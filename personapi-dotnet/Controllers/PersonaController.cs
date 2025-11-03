@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using personapi_dotnet.Models.Entities;
 using personapi_dotnet.Repository;
+using personapi_dotnet.Interface;
 
 using System.Linq;
 
@@ -10,8 +11,8 @@ namespace personapi_dotnet.Controllers
     public class PersonaController : Controller
     {
 
-        private readonly PersonaRepository _repo;
-        public PersonaController(PersonaRepository repository)
+        private readonly IPersonaRepository _repo;
+        public PersonaController(IPersonaRepository repository)
         {
             _repo = repository;
         }
@@ -50,10 +51,14 @@ namespace personapi_dotnet.Controllers
             return View("FormularioCrear"); 
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(Persona persona)
         {
             if (!ModelState.IsValid)
-                return View(persona);
+            {
+                return View("FormularioCrear", persona);
+            }
 
             await _repo.create(persona);
             return RedirectToAction(nameof(Index));

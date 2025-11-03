@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\personapi-dotnet"
+    "\\personapi-dotnet",
+    "\\personapi-dotnet\\Interface"
   ],
+  "SelectedNode": "\\personapi-dotnet\\Interface\\EntityInterface.cs",
   "PreviewInSolutionExplorer": false
 }

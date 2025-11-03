@@ -1,0 +1,49 @@
+using Microsoft.EntityFrameworkCore;
+using personapi_dotnet.Interface;
+using personapi_dotnet.Models.Entities;
+
+namespace personapi_dotnet.Repository
+{
+ public class EstudioRepository : EntityInterface<Estudio>
+ {
+ private readonly ArqPerDbContext _context;
+
+ public EstudioRepository(ArqPerDbContext context)
+ {
+ _context = context;
+ }
+
+ public async Task create(Estudio data)
+ {
+ _context.Estudios.Add(data);
+ await _context.SaveChangesAsync();
+ }
+
+ public async Task delete(int id)
+ {
+ var item = await _context.Estudios.FirstOrDefaultAsync(e => e.CcPer == id);
+ if (item != null)
+ {
+ _context.Estudios.Remove(item);
+ await _context.SaveChangesAsync();
+ }
+ }
+
+ public async Task<List<Estudio>> findAll()
+ {
+ return await _context.Estudios.Include(e => e.IdProfNavigation).ToListAsync();
+ }
+
+ public async Task<Estudio> findById(int id)
+ {
+ // using composite key; return first matching cc_per
+ return await _context.Estudios.FirstAsync(e => e.CcPer == id);
+ }
+
+ public async Task update(Estudio data)
+ {
+ _context.Estudios.Update(data);
+ await _context.SaveChangesAsync();
+ }
+ }
+}

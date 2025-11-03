@@ -1,0 +1,27 @@
+﻿@model personapi_dotnet.Models.Entities.Estudio
+
+<h1>Registrar Estudio</h1>
+
+@Html.ValidationSummary(true, "Error:")
+
+<form asp-action="Add" asp-controller="Estudio" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="IdProf">Id Profesion:</label>
+        <input type="number" class="form-control" id="IdProf" name="IdProf" required />
+    </div>
+    <div class="form-group">
+        <label for="CcPer">Cedula Persona:</label>
+        <input type="number" class="form-control" id="CcPer" name="CcPer" required />
+    </div>
+    <div class="form-group">
+        <label for="Univer">Universidad:</label>
+        <input type="text" class="form-control" id="Univer" name="Univer" />
+    </div>
+    <div class="form-group">
+        <label for="Fecha">Fecha:</label>
+        <input type="date" class="form-control" id="Fecha" name="Fecha" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
