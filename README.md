@@ -1,8 +1,11 @@
+Pagina web basica que ofrece un CRUD de 4 entidades
+
 # Tecnologias
 <ul>
   <li>.NET 9</li>
   <li>SQL</li>
   <li>Swagger 3</li>
+  <li>Docker</li>
 </ul>
 
 # Entorno de desarrollo
@@ -38,4 +41,4 @@
 </ol>
 
 # Universidad Javeriana
-##Pablo Enrique Quintero, Juan Diego Romero, Kamilt Bejarano Diaz
+## Pablo Enrique Quintero, Juan Diego Romero, Kamilt Bejarano Diaz
