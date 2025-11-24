@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj": {}
+    "C:\\Users\\usuario\\Documents\\GitHub\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj": {
+    "C:\\Users\\usuario\\Documents\\GitHub\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Documents\\GitHub\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj",
         "projectName": "personapi-dotnet",
-        "projectPath": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj",
-        "packagesPath": "C:\\Users\\Pablo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo\\Desktop\\Repositorios\\personapi-dotnet\\personapi-dotnet\\obj\\",
+        "projectPath": "C:\\Users\\usuario\\Documents\\GitHub\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj",
+        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\usuario\\Documents\\GitHub\\personapi-dotnet\\personapi-dotnet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Pablo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +50,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.22.1, )"

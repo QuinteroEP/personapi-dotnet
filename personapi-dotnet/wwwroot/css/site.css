@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 768px) {
@@ -19,4 +20,74 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar personalizado */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,.08);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  color: #667eea !important;
+}
+
+/* Botones personalizados */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #65408b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  border: none;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #0e7c74 0%, #2dd96a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(17, 153, 142, 0.4);
+}
+
+/* Cards */
+.card {
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+.footer {
+  background-color: #2d3748;
+  color: #fff;
+}
+
+.footer a {
+  color: #a0aec0;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+/* Alertas personalizadas */
+.alert {
+  border-radius: 10px;
+  border: none;
+}
+
+/* Transiciones suaves */
+.btn, .card, .alert {
+  transition: all 0.3s ease;
 }

@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using personapi_dotnet.Models;
+using kodehaus_app.Models;
 
-namespace personapi_dotnet.Controllers
+namespace kodehaus_app.Controllers
 {
     public class HomeController : Controller
     {
